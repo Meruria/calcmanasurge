@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <style type="text/css">body{background-color:#121212;}.v-main__wrap{padding-top:12px}@media(min-width:960px){.v-main__wrap{padding:12px}}</style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-app-bar app>
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title>マナサージ計算</v-toolbar-title>
+            </v-app-bar>
+            <v-main>
+                <v-container class="container--fluid">
+                    <v-row>
+                        <div class="col-md-6 col-12">
+                            <v-card>
+                                <v-card-title>
+                                    <h6 class="title">キャラステータス</h1>
+                                </v-card-title>
+                                <v-card-text>
+                                    <v-row>
+                                        <v-text-field label="INT" class="col-6" v-model="baseInt"></v-text-field>
+                                        <v-text-field label="属性値" class="col-6" v-model="baseElement"></v-text-field>
+                                    </v-row>
+                                    <v-row>
+                                        <v-text-field label="ダメージ増加" class="col-6" v-model="incrDamage"></v-text-field>
+                                        <v-text-field label="属性ダメージ増加(防具スキル%)" class="col-6" v-model="incrElemDamage">
+                                        </v-text-field>
+                                    </v-row>
+                                    <v-row>
+                                        <v-text-field label="魔法ダメージ増加(%)" class="col-6" v-model="incrMagicDamage">
+                                        </v-text-field>
+                                    </v-row>
+                                </v-card-text>
+                            </v-card>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <v-card>
+                                <v-card-title>
+                                    <h6 class="title">スキルバフ</h1>
+                                </v-card-title>
+                                <v-card-text>
+                                    <v-row>
+                                        <v-text-field label="能力強化" class="col-6" v-model="enhance"></v-text-field>
+                                        <v-text-field label="威力増加(%)" class="col-6" v-model="incrPower"></v-text-field>
+                                    </v-row>
+                                    <v-row>
+                                        <v-text-field label="マナサージ" class="col-6" v-model="manaSurge"></v-text-field>
+                                        <v-text-field label="マナサージ(増加ダメージ%)" class="col-6" v-model="incrManaSurge">
+                                        </v-text-field>
+                                    </v-row>
+                                </v-card-text>
+                            </v-card>
+                        </div>
+                        <div class="col-12">
+                            <v-card>
+                                <v-card-title>
+                                    <h6 class="title">マナサージ火力(バフ込・等倍時)</h1>
+                                </v-card-title>
+                                <v-card-text>
+                                    <v-row class="m-5">
+                                        <v-col>
+                                            <div class="body-2">0スタック</div>
+                                            <div class="title">{{result}}</div>
+                                        </v-col>
+                                        <v-col>
+                                            <div class="body-2">4スタック</div>
+                                            <div class="title">{{result4}}</div>
+                                        </v-col>
+                                        <v-col>
+                                            <div class="body-2">8スタック</div>
+                                            <div class="title">{{result8}}</div>
+                                        </v-col>
+                                        <v-col>
+                                            <div class="body-2">12スタック</div>
+                                            <div class="title">{{result12}}</div>
+                                        </v-col>
+                                    </v-row>
+                                </v-card-text>
+                            </v-card>
+                        </div>
+                    </v-row>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="js/calcmanasurge.js"></script>
+</body>
+
+</html>
